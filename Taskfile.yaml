@@ -21,6 +21,8 @@ tasks:
           --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
           --publish 6443:6443 \
           docker.io/k0sproject/k0s:latest"
+      - "sudo podman exec k0s \
+         cat /var/lib/k0s/pki/admin.conf > k0s.kubeconfig.yaml"
 
   k0s-worker1:
     cmds:
