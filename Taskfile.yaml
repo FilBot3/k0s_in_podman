@@ -40,6 +40,18 @@ tasks:
       TOKEN:
         sh: sudo podman exec -t -i k0s k0s token create --role=worker
 
+  apply:
+    cmds:
+      - "kubectl \
+         --kubeconfig=./k0s.kubeconfig.yaml \
+         apply -f ./src/kube_manifests/"
+
+  delete:
+    cmds:
+      - "kubectl \
+         --kubeconfig=./k0s.kubeconfig.yaml \
+         delete -f ./src/kube_manifests/"
+
   stop:
     cmds:
       - sudo podman container stop k0s
