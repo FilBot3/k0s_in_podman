@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Phillip Dudley
+  description: Manage k0s in Podman
+  company: Basement Inc.
+  issue_tracker_url: https://github.com/FilBot3/k0s_in_podman/issues
+  license: MIT
+  min_ansible_version: '2.1'
+  platforms:
+    - name: Fedora
+      versions:
+        - '36'
+    - name: Ubuntu
+      versions:
+        - 'jammy'
+
+  galaxy_tags:
+    - k0s
+    - podman
+    - k8s
+
+dependencies: []
+...

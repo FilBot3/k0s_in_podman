@@ -1,0 +1,8 @@
+---
+# defaults file for k0s_in_podman
+ansible_action: create
+# Default: create
+# Type: string
+# Description:
+#   Tell Ansible to create a k0s cluster or tear it down in Podman.
+...

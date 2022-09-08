@@ -1,0 +1,6 @@
+---
+- name: Create k0s using Ansible
+  ansible.builtin.include_tasks:
+    file: k0s_create.yml
+  when: ( ansible_action == 'create' )
+...

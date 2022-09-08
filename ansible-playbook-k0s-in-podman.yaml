@@ -1,0 +1,9 @@
+---
+- name: Setup k0s in Podman
+  hosts: '{{ host_grp | default("localhost") }}'
+  gather_facts: true
+  roles:
+    - role: k0s_in_podman
+      vars:
+        ansible_action: '{{ ansible_action | default("create") }}'
+...

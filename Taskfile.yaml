@@ -2,6 +2,9 @@
 # https://taskfile.dev
 version: '3'
 
+vars:
+  ACTION: create
+
 tasks:
   default:
     cmds:
@@ -71,4 +74,22 @@ tasks:
     cmds:
       - sudo podman volume rm k0s-controller
       - sudo podman volume rm k0s-worker1
+
+  ansible-galaxy:
+    desc: 'Install all requirements'
+    cmds:
+      - "ansible-galaxy collection install \
+         --requirements-file collections/requirements.yml \
+         --collections-path collections"
+      - "ansible-galaxy role install \
+         --role-file roles/requirements.yml \
+         --roles-path roles"
+
+  ansible-playbook:
+    desc: 'Run Ansible-Playbook'
+    cmds:
+      - "ansible-playbook \
+         --extra-vars=ansible_action={{.ACTION}} \
+         --ask-become-pass \
+         ansible-playbook-k0s-in-podman.yaml"
 ...
